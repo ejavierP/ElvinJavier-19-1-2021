@@ -21,12 +21,11 @@ namespace Bertonis.Web.Api.DataSources
             };
         }
 
-        public async Task<List<Album>> GetAllAlbums()
+        public async Task<List<Album>> GetAlbums()
         {
             var response = await httpClient.GetAsync("/albums");
             var jsonResponse = await response.Content.ReadAsStringAsync();
             List<Album> albums = JsonConvert.DeserializeObject<List<Album>>(jsonResponse);
-
             return albums;
         }
 
@@ -71,7 +70,7 @@ namespace Bertonis.Web.Api.DataSources
 
 public interface IGalleryApi
 {
-    Task<List<Album>> GetAllAlbums();
+    Task<List<Album>> GetAlbums();
     Task<List<Photo>> GetPhotosByAlbumId(int albumId);
     Task<Photo> GetPhotoById(int photoId);
     Task<List<Comment>> GetCommentsByPhotoId(int photoId);
