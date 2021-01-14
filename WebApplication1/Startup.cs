@@ -1,3 +1,6 @@
+using BertoniAPP.BLL.Services;
+using Bertonis.BLL.Contracts;
+using Bertonis.Web.Api.DataSources;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +27,10 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<IGalleryApi, GalleryApi>();
+            services.AddSingleton<IAlbumsService, AlbumsService>();
+            services.AddSingleton<IPhotosService, PhotosService>();
+            services.AddSingleton<ICommentsService, CommentsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,8 +56,8 @@ namespace WebApplication1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                          name: "default",
+                          pattern: "{controller=Gallery}/{action=Index}/{id?}");
             });
         }
     }

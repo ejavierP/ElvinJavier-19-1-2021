@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Models;
 
-namespace WebApplication1.Controllers
+namespace Bertonis.Web.Controllers
 {
     public class HomeController : Controller
     {

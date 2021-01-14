@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bertonis.BLL\Bertonis.BLL.csproj" />
+    <ProjectReference Include="..\Bertonis.Web.Api\Bertonis.Web.Api.csproj" />
+  </ItemGroup>
+
 </Project>
